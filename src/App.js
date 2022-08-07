@@ -1,13 +1,11 @@
-import './App.css';
+import Stopwatch from "./Stopwatch";
 
-function App() {
+const App = () => {
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>Stopwatch - React</h1>
-      </header>
+      <Stopwatch />
     </div>
   );
-}
+};
 
 export default App;
