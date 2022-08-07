@@ -4,7 +4,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        Stopwatch - React
+        <h1>Stopwatch - React</h1>
       </header>
     </div>
   );
