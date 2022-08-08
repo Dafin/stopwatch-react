@@ -5,14 +5,14 @@ const Stopwatch = () => {
     //
     return (
         <div className="stopwatch">
-        <h1>Stopwatch - React</h1>
+        <h1>ReactJS Stopwatch</h1>
             <div className="readout">
                 00:00:00
             </div>
             <div className="buttons">
-                <button>Start</button>
-                <button>Stop</button>
-                <button>Reset</button>
+                <button id="start">Start</button>
+                <button id="stop">Stop</button>
+                <button id="reset">Reset</button>
             </div>
         </div>
     );
