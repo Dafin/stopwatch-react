@@ -19,8 +19,8 @@ h1 {
   font-size: 4em;
   color: lightgreen;
   border-color: black;
-  /* border-style: inset; */
-  border-width: 1px;
+  border-style: inset;
+  border-width: 2px;
   text-align: center;
   font-family: LCD, 'Courier New', Courier, monospace;
   z-index: 9999;
