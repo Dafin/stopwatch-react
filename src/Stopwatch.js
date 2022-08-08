@@ -5,12 +5,11 @@ const Stopwatch = () => {
     const [ticking, setTicking] = React.useState(false);
     const [timeDisplay, setTimeDisplay] = useState(0);
 
-    // TODO output stopwatch readout
     return (
         <div className="stopwatch">
             <h1>ReactJS Stopwatch</h1>
             <div className="readout">
-                00:00:00
+                {"0" + timeDisplay}:{"0" + timeDisplay}:{"0" + timeDisplay}
             </div>
             <div className="buttons">
                 <button id="start" onClick={() => setTicking(true)}>Start</button>
