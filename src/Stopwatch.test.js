@@ -1,5 +1,6 @@
 import { Stopwatch } from './Stopwatch'
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
+import userEvent from "@testing-library/user-event";
 
 describe("<StopWatch />", () => {
     /// https://testing-library.com/docs/react-testing-library/example-intro
@@ -8,9 +9,34 @@ describe("<StopWatch />", () => {
         const result = screen.getByTestId('stop-watch');
         expect(result).toBeInTheDocument();
     });
+    it("The stopwatch SHOULD have the ability to be started", () => {
+        /** WE evaulated the stopwatch as started when the readout is no longer '00:00:00' */
+        
+        // Assemble
+        render(<Stopwatch />)
+        const startButton = screen.getByTestId('start-button');
+        const readout = screen.getByTestId('readout-panel');
+
+        // Action 
+        userEvent.click(startButton);
+
+        // Assert
+        expect(readout).not.toEqual('00:00:00');
+    });
+    it("The stopwatch SHOULD have the ability to be stopped once started", () => {
+        // Assemble
+        render(<Stopwatch />)
+        const startButton = screen.getByTestId('start-button');
+        const readout = screen.getByTestId('readout-panel');
+
+        // Action 
+        userEvent.click(startButton);
+
+        // Assert
+        expect(readout).not.toEqual('00:00:00');
+    });
     it.todo('Check presence of start button');
     it.todo('Check presence of stop button');
-    it.todo("The stopwatch SHOULD have the ability to be started and stopped");
     it.todo('Check presence of reset button');
     it.todo('Reset button zero\'s the time.');
     it.todo('The stopwatch SHOULD display the number of seconds')
