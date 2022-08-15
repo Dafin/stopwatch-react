@@ -58,8 +58,8 @@ export const Stopwatch = () => {
             </div>
             <div className="buttons">
                 <button id="start" data-testid="start-button" onClick={() => setTicking(true)}>Start</button>
-                <button id="stop" onClick={() => setTicking(false)}>Stop</button>
-                <button id="reset" onClick={() => setTimeDisplay(0)} >Reset</button>
+                <button id="stop" data-testid="stop-button" onClick={() => setTicking(false)}>Stop</button>
+                <button id="reset" data-testid="reset-button" onClick={() => setTimeDisplay(0)} >Reset</button>
             </div>
         </div>
     );
