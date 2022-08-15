@@ -2,13 +2,29 @@ import { Stopwatch } from './Stopwatch'
 import { render, screen } from '@testing-library/react';
 import userEvent from "@testing-library/user-event";
 
+/// https://testing-library.com/docs/react-testing-library/example-intro
+
 describe("<StopWatch />", () => {
-    /// https://testing-library.com/docs/react-testing-library/example-intro
     it('Stopwatch should appear in the document .', () => {
         render(<Stopwatch />)
         const result = screen.getByTestId('stop-watch');
         expect(result).toBeInTheDocument();
     });
+
+    it('Check presence of start button', () => {
+        render(<Stopwatch />)
+        const result = screen.getByTestId('start-button');
+        expect(result).toBeInTheDocument();
+    });
+    it('Check presence of stop button', () => {
+    });
+
+    it('Check presence of reset button', () => {
+        render(<Stopwatch />)
+        const result = screen.getByTestId('reset-button');
+        expect(result).toBeInTheDocument();
+    });
+    
     it("The stopwatch SHOULD have the ability to be started", () => {
         /** WE evaulated the stopwatch as started when the readout is no longer '00:00:00' */
         
@@ -23,21 +39,26 @@ describe("<StopWatch />", () => {
         // Assert
         expect(readout).not.toEqual('00:00:00');
     });
-    it("The stopwatch SHOULD have the ability to be stopped once started", () => {
+
+// How to wait?? 
+    it.skip("The stopwatch SHOULD have the ability to be stopped once started", async () => {
         // Assemble
         render(<Stopwatch />)
         const startButton = screen.getByTestId('start-button');
+        const stopButton = screen.getByTestId('stop-button');
         const readout = screen.getByTestId('readout-panel');
 
         // Action 
         userEvent.click(startButton);
-
+        await new Promise((r) => setTimeout(r, 2000));
+        userEvent.click(stopButton);
+        await new Promise((r) => setTimeout(r, 2000));
         // Assert
-        expect(readout).not.toEqual('00:00:00');
+        expect(readout).not.toEqual('00:00:02');
     });
-    it.todo('Check presence of start button');
-    it.todo('Check presence of stop button');
-    it.todo('Check presence of reset button');
+
+
+
     it.todo('Reset button zero\'s the time.');
     it.todo('The stopwatch SHOULD display the number of seconds')
     it.todo('The stopwatch renders the seconds.');
