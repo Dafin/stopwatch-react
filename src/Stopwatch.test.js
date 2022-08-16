@@ -17,6 +17,9 @@ describe("<StopWatch />", () => {
         expect(result).toBeInTheDocument();
     });
     it('Check presence of stop button', () => {
+        render(<Stopwatch />)
+        const result = screen.getByTestId('stop-button');
+        expect(result).toBeInTheDocument();
     });
 
     it('Check presence of reset button', () => {
@@ -25,8 +28,9 @@ describe("<StopWatch />", () => {
         expect(result).toBeInTheDocument();
     });
     
+
     it("The stopwatch SHOULD have the ability to be started", () => {
-        /** WE evaulated the stopwatch as started when the readout is no longer '00:00:00' */
+        /** WE evaulate the stopwatch as started when the readout is no longer '00:00:00' */
         
         // Assemble
         render(<Stopwatch />)
@@ -40,7 +44,11 @@ describe("<StopWatch />", () => {
         expect(readout).not.toEqual('00:00:00');
     });
 
-// How to wait?? 
+
+
+
+
+// How to wait?? Cant rely on previous state? 
     it.skip("The stopwatch SHOULD have the ability to be stopped once started", async () => {
         // Assemble
         render(<Stopwatch />)
@@ -57,12 +65,17 @@ describe("<StopWatch />", () => {
         expect(readout).not.toEqual('00:00:02');
     });
 
+    it.todo('"The stopwatch COULD display the time in any recognisable timeformat (i.e hh:mm:ss)."');
+    // render(<Stopwatch />)
+    // const readout = screen.getByTestId('readout-panel');
+    // // Assert
+    // expect(readout).not.toContain('00:00:00');
+
 
 
     it.todo('Reset button zero\'s the time.');
     it.todo('The stopwatch SHOULD display the number of seconds')
     it.todo('The stopwatch renders the seconds.');
-    it.todo('"The stopwatch COULD display the time in any recognisable timeformat (i.e hh:mm:ss)."');
     it.todo('The stopwatch displays in the hh:mm:ssformat');
     it.todo('Detailed styling IS NOT important - show your own creativity.');
 });
