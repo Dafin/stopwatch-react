@@ -10,7 +10,7 @@ export const Stopwatch = () => {
         if (ticking) {
             interval = setInterval(() => {
                 setTimeDisplay((prevTimeDisplay) => prevTimeDisplay + 1);
-            }, 1);
+            }, 1000);
         } else if (!ticking) {
             clearInterval(interval);
         }
@@ -26,7 +26,7 @@ export const Stopwatch = () => {
         return result === "00" ? "00" : result;
      } 
      const getSeconds = (time) => {
-        const result  = ("0" + Math.floor((time / 10) % 100)).slice(-2);
+        const result  = ("0" + Math.floor((time) % 60)).slice(-2);
         return result === "00" ? "00" : result;
      } 
 
