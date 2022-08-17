@@ -69,12 +69,27 @@ button {
   background-color: green;
 }
 
+#started {
+  background-color: gray;
+  border-style: inset;
+  opacity: 0.2;
+}
+
 #stop {
   background-color: orangered;
 }
 
-#reset {
+#stopped {
   background-color: gray;
+  border-style: inset;
+  opacity: 0.2;
+}
+#reset {
+  background-color:grey ;
+}
+
+#resettable {
+  background-color: aqua;
 }
 
 button:hover {
@@ -92,3 +107,5 @@ button:hover {
 
 /* Safari13+ */
 @media not all and (min-resolution:.001dpcm) { @supports (-webkit-appearance:none) and (display:flow-root) { .readout { font-family: LCD, 'Courier New', Courier, monospace;  } } }
+
+

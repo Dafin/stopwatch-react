@@ -18,17 +18,23 @@ export const Stopwatch = () => {
     }, [ticking]);
 
     const getHours = (time) => {
-       const result  = ("0" + Math.floor((time / 60000) % 60)).slice(-2);
-       return result === "00" ? "00" : result;
-    } 
+        const result = ("0" + Math.floor((time / 60000) % 60)).slice(-2);
+        return result === "00" ? "00" : result;
+    }
     const getMinutes = (time) => {
-        const result  = ("0" + Math.floor((time / 1000) % 60)).slice(-2);
+        const result = ("0" + Math.floor((time / 1000) % 60)).slice(-2);
         return result === "00" ? "00" : result;
-     } 
-     const getSeconds = (time) => {
-        const result  = ("0" + Math.floor((time) % 60)).slice(-2);
+    }
+    const getSeconds = (time) => {
+        const result = ("0" + Math.floor((time) % 60)).slice(-2);
         return result === "00" ? "00" : result;
-     } 
+    }
+
+    // const isResettable = (timeDisplay) => {
+    //     if (getSeconds(timeDisplay) === '0') {
+    //         return true;
+    //     } ;
+    // };
 
     // TODO keyboard interaction
     // const onKeyboardInteraction = (keyboardEvent) => {
@@ -50,19 +56,18 @@ export const Stopwatch = () => {
     return (
         <div className="stopwatch" data-testid="stop-watch">
             <h1>ReactJS Stopwatch</h1>
-            <div 
+            <div
                 className="readout"
                 data-testid="readout-panel"
-                >
+            >
                 {getHours(timeDisplay)}:{getMinutes(timeDisplay)}:{getSeconds(timeDisplay)}
             </div>
             <div className="buttons">
-                <button id="start" data-testid="start-button" onClick={() => setTicking(true)}>Start</button>
-                <button id="stop" data-testid="stop-button" onClick={() => setTicking(false)}>Stop</button>
+                <button id={ticking ? 'started' : 'start'} data-testid="start-button" onClick={() => setTicking(true)}>Start</button>
+                <button id={ticking ? 'stop' : 'stopped'} data-testid="stop-button" onClick={() => setTicking(false)}>Stop</button>
                 <button id="reset" data-testid="reset-button" onClick={() => setTimeDisplay(0)} >Reset</button>
+                {/* <button id={isResettable ? 'reset' : 'resettable'} data-testid="reset-button" onClick={() => setTimeDisplay(0)} >Reset</button> */}
             </div>
         </div>
     );
-
 };
-
