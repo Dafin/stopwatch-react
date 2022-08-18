@@ -22,8 +22,9 @@ h1 {
   border-style: inset;
   border-width: 2px;
   text-align: center;
-  /* font-family: LCD, 'Courier New', Courier, monospace; */
+  font-family:'Courier New', Courier, monospace;
   z-index: 9999;
+  background-color: black;
 }
 
 .stopwatch {
