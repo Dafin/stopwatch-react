@@ -29,7 +29,7 @@ describe("<StopWatch />", () => {
     });
     
 
-    it("The stopwatch SHOULD have the ability to be started", () => {
+    it('The stopwatch SHOULD have the ability to be started', () => {
         /** WE evaulate the stopwatch as started when the readout is no longer '00:00:00' */
         
         // Assemble
@@ -45,8 +45,7 @@ describe("<StopWatch />", () => {
     });
 
 
-// How to wait?? Cant rely on previous state? 
-// https://github.com/testing-library/react-hooks-testing-library/issues/241
+// How to wait?? Cant rely on previous state? Could be useful: https://github.com/testing-library/react-hooks-testing-library/issues/241
     it.skip("The stopwatch SHOULD have the ability to be stopped once started", async () => {
         // Assemble
         // render(<Stopwatch />)
@@ -62,6 +61,19 @@ describe("<StopWatch />", () => {
         // // Assert
         // expect(readout).not.toEqual('00:00:02');
     });
+    
+    it('The stopwatch displays the number of seconds',() => {
+            render(<Stopwatch />)
+            const result = screen.getByTestId('minutes-segment');
+            expect(result).toBeInTheDocument();
+    });
+
+    it('The stopwatch renders the number of seconds',() => {
+        render(<Stopwatch />)
+        const result = screen.getByTestId('minutes-segment');
+        expect(result).not.toBeEmptyDOMElement();
+});
+
 
     it.todo('The stopwatch displays in the `hh:mm:ss`format');
     // render(<Stopwatch />)
@@ -70,11 +82,7 @@ describe("<StopWatch />", () => {
     // expect(readout).not.toContain('00:00:00');
 
 
-
     it.todo('Reset button zero\'s the time.');
-    it.todo('The stopwatch SHOULD display the number of seconds')
-    it.todo('The stopwatch renders the seconds.');
-    it.todo('Detailed styling IS NOT important - show your own creativity.');
-    it.todo('Time is accurate');
-    // POtentially usefull information : https://stackoverflow.com/questions/20269657/right-way-to-get-web-server-time-and-display-it-on-web-pages
+    it.todo('Time is accurate'); // Currently there is a lag, could etting server time help?: https://stackoverflow.com/questions/20269657/right-way-to-get-web-server-time-and-display-it-on-web-pages
+    it.todo('App / Component is styled.'); // Perhaps check for presence of stylesheet?
 });
