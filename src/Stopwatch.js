@@ -59,13 +59,22 @@ export const Stopwatch = () => {
                 >
                     {getHours(timeDisplay)}
                 </span>
-                :
+                <span className={ticking ? 'colon' : ""}
+                    data-testid="colon-segment"
+                >
+                    :
+                </span>
                 <span
                     data-testid="minutes-segment"
                 >
                     {getMinutes(timeDisplay)}
                 </span>
+                <span
+                    className={ticking ? 'colon' : ""}
+                    data-testid="colon-segment"
+                >
                 :
+                </span>
                 <span
                     data-testid="seconds-segment"
                 >

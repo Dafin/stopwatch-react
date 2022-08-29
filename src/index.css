@@ -29,6 +29,7 @@ h1 {
   font-family: LED, 'Courier New', Courier, monospace;
   z-index: 9999;
   background-color: black;
+  height: 1em;
 }
 
 .stopwatch {
@@ -95,25 +96,26 @@ button {
 }
 
 #resettable {
-  /* background-color: darkgray; */
-  /* opacity: 0.2; */
+  background-color: darkgrey;
+  border: none;
+  /* opacity: 0.9; */
 
 }
 
 button:hover {
   border-style: inset;
 }
-/* @keyframes fadeIn {
+ @keyframes fadeIn {
   from {
     opacity: 0;
   }
+} 
+
+.colon {
+  animation: fadeIn 1s infinite;
 }
 
-.readout {
-  animation: fadeIn 1s infinite;
-} */
-
 /* Safari13+ */
-@media not all and (min-resolution:.001dpcm) { @supports (-webkit-appearance:none) and (display:flow-root) { .readout { font-family: LCD, 'Courier New', Courier, monospace;  } } }
+@media not all and (min-resolution:.001dpcm) { @supports (-webkit-appearance:none) and (display:flow-root) { .readout { font-family: LCD, 'Courier New', Courier, monospace; } }.colon{animation: none;} }
 
 
